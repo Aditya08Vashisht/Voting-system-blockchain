@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>                  </title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .voting-container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .candidate {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .candidate label {
+            font-size: 18px;
+            margin-right: 10px;
+        }
+
+        .vote-button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s;
+        }
+
+        .vote-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="voting-container">
+        <h1>                  </h1>
+        <form id="votingForm">
+            <div class="candidate">
+                <img src="assets/images/bg/bjp.png" alt="BJP Symbol" width="100">
+                <div>
+                    <p>Party: Bharatiya Janata Party (BJP)</p>
+                    <p>Candidate: Candidate 1</p>
+                </div>
+                <input type="radio" id="bjp" name="vote" value="BJP">
+                <label for="bjp">Vote Now</label>
+            </div>
+            
+            <div class="candidate">
+                <img src="assets/images/bg/congress.png" alt="Congress Symbol" width="100">
+                <div>
+                    <p>Party: Indian National Congress</p>
+                    <p>Candidate: Candidate 2</p>
+                </div>
+                <input type="radio" id="congress" name="vote" value="Congress">
+                <label for="congress">Vote Now</label>
+            </div>
+
+            <div class="candidate">
+                <img src="assets/images/bg/aap.jpg" alt="AAP Symbol" width="100">
+                <div>
+                    <p>Party: Aam Aadmi Party (AAP)</p>
+                    <p>Candidate: Candidate 3</p>
+                </div>
+                <input type="radio" id="aap" name="vote" value="AAP">
+                <label for="aap">Vote Now</label>
+            </div>
+
+            <div class="candidate">
+                <img src="assets/images/bg/shiv sena.jpg" alt="Shiva Sena Symbol" width="100">
+                <div>
+                    <p>Party: Shiv Sena</p>
+                    <p>Candidate: Candidate 4</p>
+                </div>
+                <input type="radio" id="shiva-sena" name="vote" value="Shiva Sena">
+                <label for="shiva-sena">Vote Now</label>
+            </div>
+            
+            <input type="submit" class="vote-button" value="Vote Now">
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("votingForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const selectedCandidate = document.querySelector('input[name="vote"]:checked');
+
+            if (!selectedCandidate) {
+                alert("Please select a candidate before voting.");
+                return;
+            }
+
+            const voteValue = selectedCandidate.value;
+            alert(`You voted for: ${voteValue}`);
+        });
+    </script>
+</body>
+</html>
